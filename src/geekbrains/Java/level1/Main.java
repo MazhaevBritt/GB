@@ -4,27 +4,27 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /* Создаем массив сотрудников, с помощью класса Employee */
-        Employee arr_employees [] = new Employee [5];
-        arr_employees [0] = new Employee ("Екатерина Курочкина", "Менеджер клининга",
-                "kurochkina_74@gmail.com", "89995427456", 27000, 46 );
-        arr_employees [1] = new Employee ("Кирилл Крейсеров", "Менеджер отдела",
-                "kreyserAvrora777@gmail.com", "89625486321", 45000, 30);
-        arr_employees [2] = new Employee ("Владимир Ксавьеров", "Специалист-проектировщик",
-                "professorX@gmail.com", "89245684242", 38000, 27);
-        arr_employees [3] = new Employee ("Варвара Безос", "Финансовый директор",
-                "AmazonKa@gmail.com", "89994568198", 78000, 45);
-        arr_employees [4] = new Employee ("Кристиан Уэйн", "Глава СБ",
-                "gotham_knight@gmail.com", "89999110202", 50000, 37);
+        Animal [] arrPet = new Animal[10];
+        arrPet [0] = new Cat ("Крис");
+        arrPet [1] = new Cat ("Шейла");
+        arrPet [2] = new Cat ("Фокс");
+        arrPet [3] = new Cat ("Амурчик");
+        arrPet [4] = new Cat ("Пушок");
+        arrPet [5] = new Dog ("Жужа");
+        arrPet [6] = new Dog ("Ларик");
+        arrPet [7] = new Dog ("Рома");
+        arrPet [8] = new Dog ("Акелла");
+        arrPet [9] = new Dog ("Цербер");
 
-        /* С помощью цикла, проходим по всем элементам массива, и определяем (вызывая при этом геттер возраста),
-        кто из сотрудников старше 40 лет. Далее при помощи метода getInfoEmployee, из класса Employee,
-        выводим информацию о них */
-        for (int i = 0; i < arr_employees.length; i++) {
-            if (arr_employees [i].getAge() > 40) {
-                arr_employees [i].getInfoEmployee();
-            }
+        for (int i = 0; i < arrPet.length; i++) {
+            arrPet[i].getInfoPet();
+            arrPet[i].run(450);
+            arrPet[i].jump(1.5f);
+            arrPet[i].swim(15);
+            System.out.println ();
+            System.out.println ();
         }
+
 
     }
 }
