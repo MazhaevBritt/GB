@@ -4,28 +4,38 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Animal [] arrPet = new Animal[10];
-        arrPet [0] = new Cat ("Крис");
-        arrPet [1] = new Cat ("Шейла");
-        arrPet [2] = new Cat ("Фокс");
-        arrPet [3] = new Cat ("Амурчик");
-        arrPet [4] = new Cat ("Пушок");
-        arrPet [5] = new Dog ("Жужа");
-        arrPet [6] = new Dog ("Ларик");
-        arrPet [7] = new Dog ("Рома");
-        arrPet [8] = new Dog ("Акелла");
-        arrPet [9] = new Dog ("Цербер");
+        /* создаем миску и наполняем ее */
+        Bowl bowl = new Bowl (30);
+        bowl.print_quantityFood();
+        System.out.println();
 
-        for (int i = 0; i < arrPet.length; i++) {
-            arrPet[i].getInfoPet();
-            arrPet[i].run(450);
-            arrPet[i].jump(1.5f);
-            arrPet[i].swim(15);
-            System.out.println ();
-            System.out.println ();
+        /* Создаем котов */
+        Cat array_Cats [] = new Cat [5];
+        array_Cats [0] = new Cat ("Крис");
+        array_Cats [1] = new Cat ("Шейла");
+        array_Cats [2] = new Cat ("Фокс");
+        array_Cats [3] = new Cat ("Амурчик");
+        array_Cats [4] = new Cat ("Пушок");
+
+        /* Проверяем */
+        for (int z = 0; z < 2; z++) {
+            for (int i = 0; i < array_Cats.length; i++) {
+                if (bowl.quantityFood >= array_Cats[i].need_for_food()) {
+                    array_Cats[i].print_infoCat();
+                    array_Cats[i].Cat_eat(bowl);
+                    bowl.print_quantityFood();
+                    array_Cats[i].decrease_fill();
+                    System.out.println();
+                } else {
+                    array_Cats[i].print_infoCat();
+                    array_Cats[i].print_Name_Cat();
+                    System.out.println(" - не хватило еды. Нужно положить корм.");
+                    bowl.fillingBowl(array_Cats[i]);
+                    bowl.print_quantityFood();
+                    System.out.println();
+                }
+            }
         }
-
-
     }
 }
 
